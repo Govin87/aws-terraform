@@ -3,7 +3,7 @@ name: Terraform S3 Bucket Creation
 on:
   push:
     branches:
-      - main  # Adjust this to the branch you want to trigger the pipeline on
+      - main
 
 jobs:
   terraform:
@@ -16,14 +16,14 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: "1.10.5"  # Specify the version you want to use
+          terraform_version: "1.10.5"
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: ${{ secrets.AWS_REGION }}
+          aws_region: us-east-1  # Ensure AWS region is provided here
 
       - name: Terraform Init
         run: terraform init
