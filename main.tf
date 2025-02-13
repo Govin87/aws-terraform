@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "s3terrafomaws"  # Ensure the name is globally unique
+  bucket = "s3terrafomaws-oidc"  # Ensure the name is globally unique
   acl    = "private"
 }
 
